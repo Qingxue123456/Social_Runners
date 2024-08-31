@@ -1,0 +1,724 @@
+body {
+    background-color:white;
+    resize: both;
+    overflow: auto;
+}
+
+.labelText {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #cacaca;
+}
+
+.search {
+  width: 30%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #e6e6e6;
+}
+
+.runBtn {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  margin-left: 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.weatherContainer {
+  float: right;
+  width: 50%; 
+  height: 40px;
+  margin-top: 20px; 
+}
+
+#weather{
+  height: 40px;
+  width:100%;
+  background-color: #fafafa; 
+  border: none;
+  padding: 5px; 
+  font-size: 16px;
+  color: #040404; 
+  font-weight: bold;
+}
+
+.mapContainer {
+  float: right;
+  width: 50%; 
+  height: 400px;
+  margin-top: 20px; 
+}
+
+#map{
+  height: 400px;
+  width:100%;
+}
+
+#profile {
+  border-radius: 50%;
+}
+
+.profile {
+    padding: 10px;
+    text-align: center;
+    height: auto;
+}
+
+/* Full-width input fields */
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #e6e6e6;
+}
+
+li {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #cacaca;
+}
+
+ul {
+  padding: 0;
+}
+
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(184, 184, 184);
+  outline: none;
+}
+
+/* button {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin: 8px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+  border-radius: 20px;
+} */
+
+.loginContainer {
+  width: 100%;
+  float: center;
+  padding: 20px;
+  border: 0.5px solid #afafaf;
+  height: 400px;
+
+}
+
+/* Set a style for all buttons */
+.button {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  background-color: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  width: 30%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  margin-left: 0;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: whitesmoke;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: right;
+  width: 100%;
+}
+
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+/* OLD BELOW!!!!! */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Add a gray background color with some padding */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 10px;
+    background: #ffffff;
+    font-size: 13px;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  /* Header Title */
+  .header {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    background: #028a9f;
+    color: white;
+  }
+  
+/* XInru:add css of content div */
+#content {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+}
+
+.run-details {
+  text-align: center;
+}
+
+.run-details p {
+  margin: 20px;
+}
+
+.run-details p.owner::before,
+.run-details p.start-location::before,
+.run-details p.destination::before,
+.run-details p.level::before {
+  content: ''; 
+  font-weight: bold; 
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+
+  .login {
+    width:300px;
+    height:150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -150px;
+  }
+  
+  /* Split Screen into Columns */
+  
+  .rightcolumn {
+    float: right;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .leftcolumn {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .left {
+    float: right;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .right {
+    float: right;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .centercolumn {
+    float: left;
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+
+  .rightcolumn {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .box {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 15px;
+  }
+  
+  
+  .card {
+     background-color: whitesmoke;
+     padding: 15px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  tr:nth-child(even) {
+    background-color: #3b37377c;
+  }
+
+  button:hover {
+    opacity:1;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #000000;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .cancelbtn, .signupbtn {
+    float: right;
+    width: 100%;
+  }
+
+  .containerForm {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* Add padding to container elements */
+  .container {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  #result {
+    color: red;
+  }
+  
+  .submitComment {
+    background-color: white;
+    color: black;
+    border: 1px solid #888;
+    width: 100%;
+    float: right;
+  }
+
+  .submitComment :hover {
+    background-color: rgb(138, 138, 138);
+  }
+
+  .readMore {
+    background-color: rgb(216, 216, 216);;
+    color: black;
+    width: 40%;
+    margin: 5px;
+  }
+
+  .logoutBtn {
+    color: white;
+    background-color: #475154 ;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 10px;
+  }
+
+  .logoutBtn:hover {
+    opacity: 0.7;
+  }
+
+  .register {
+    color: black;
+    background-color: white ;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 10px;
+    opacity: 0.8;
+  }
+
+  .register:hover {
+    opacity: 1;
+  }
+
+  .commentPost {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mapStyle {
+    background-color: rgb(94, 0, 0);
+    border-radius: 10px;
+    width: 40%;
+    height: 100px;
+    border:solid black;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color:rgb(255, 255, 255);
+    padding: 20px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #ffffff;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  .postTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9d0208;
+  }
+
+  .dateDisplay {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .toFrom {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #ff8484;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+  }
+
+  /* Xinru: add CSS about search content list  */
+  .autocomplete-option {
+    padding: 5px; 
+    cursor: pointer; 
+  }
+  
+  .autocomplete-option:hover {
+    background-color: #f0f0f0; 
+  }
+  
+  .autocomplete-option:active {
+    background-color: #ccc; 
+  }
+  
+  .autocomplete-option:not(:last-child) {
+    border-bottom: 1px solid #ddd; 
+  }
+
+
+ /* Xinru: add CSS about Recording Run container  */ 
+
+ #user_data_container.route-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.run {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.run p {
+  margin: 10px 0;
+}
+
+.run button {
+  background-color: #01202f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.run button:hover {
+  background-color: #023d6f;
+}
+
+/* Style for check button */
+.run button.check {
+  display: block; 
+  margin: 0 auto; 
+  text-align: center; 
+  background-color: #0b0b0b;
+}
+
+.run button.check:hover {
+  background-color: #525353;
+}
+
+/* Xinru: add CSS about Recommod Run container  */ 
+#recommond_data_container.route-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.route {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.route p {
+  margin: 10px 0;
+}
+
+.route button {
+  background-color: #01202f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.route button:hover {
+  background-color: #023d6f;
+}
+
+/* Style for view button */
+.route button.view {
+  display: block; 
+  margin: 0 auto; 
+  text-align: center; 
+  background-color: #0b0b0b;
+}
+
+.route button.view:hover {
+  background-color: #525353;
+}
+
+
+/* comment board */
+#commentForm {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0 auto; 
+}
+
+#commentForm h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#commentUsername, #commentDate {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+#commentInput {
+  width: 100%;
+  padding: 50px; 
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#submitComment {
+  background-color: #2f3030;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; 
+  margin: 0 auto; 
+}
+
+/* comment list */
+#commentsList {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0 auto; 
+  text-align: left; 
+}
+
+#commentsList h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  display: block; 
+  margin-bottom: 20px; 
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment .username {
+  font-weight: bold;
+}
+
+.comment .date {
+  font-style: italic;
+  color: #888;
+}
+
+.hidden {
+  display:none;
+}
+  

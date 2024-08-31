@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Runners</title>
+    <!--Leaflet Map package-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body onload="load()">
+    <!--Login Page-->
+    <div id="LoginPage">
+     <div class="header"><br>
+         <h2>Social Runners </h2>
+     </div>
+
+     <div class="loginContainer">
+         <h1>Login</h1>
+         <label for="userName"><b>User Name</b></label>
+         <input type="text" placeholder="Enter Username" id="userName" required>
+
+         <label for="psw"><b>Password</b></label>
+         <input type="password" placeholder="Enter Password" id="passwordLogin" required>
+
+         <button onclick=login() id="loginInBtn">Login</button>
+         <button onclick="location.href = './register.html'" style="width:auto;" class="register">Don't have an
+             Account? Sign
+             Up</button>
+     </div>
+ </div>
+
+    <div id="dashboardPage" class="hidden" >
+      <!--Header-->
+      <div class="header">
+        <h2>Welcome to Social Runners</h2>
+        <button
+          onclick="logout() "
+          style="width: auto"
+          class="logoutBtn"
+        >
+          Logout
+        </button>
+      </div>
+
+      <script>
+        function logout() {
+          // Perform logout action
+          // Redirect to index.html page
+          window.location.href = './index.html';
+        }
+      </script>
+
+      <!--Profile-->
+      <div class="leftcolumn">
+        <div class="card">
+          <div class="profile"id="profileInfo">
+            <img src="img.png" id="profile" style="width: 100%" />
+          </div>
+        </div>
+      </div>
+
+      <script>
+       document.addEventListener("DOMContentLoaded", function(event) {
+       console.log('DOMContentLoaded event fired.');
+
+    //Read user information in localStorage
+    var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+    console.log('User info retrieved from localStorage:', userInfo);
+
+    // Use D3 to select the div of the user information table
+    var profileInfoDiv = d3.select("#profileInfo");
+
+    //Create a form and fill in user information
+    var table = profileInfoDiv.append("table");
+    var tbody = table.append("tbody");
+    Object.entries(userInfo).forEach(([key, value]) => {
+        var row = tbody.append("tr");
+        row.append("td").text(key);
+        row.append("td").text(value);
+    });
+    });
+    </script>
+
+      <!--Social Runs-->
+      <div class="centercolumn" id="startRun">
+        <div class="card">
+          <button
+            onclick="showModal()"
+            id="modalClick"
+            style="width: auto"
+            class="runBtn"
+          >
+            Plan New Run
+          </button>
+
+          <script>
+            const planNewRunButton = document.getElementById('modalClick');
+
+            planNewRunButton.addEventListener('click', function() {
+              const joinRunButton = document.getElementById('joinRunButton');
+              joinRunButton.style.display = 'none';
+            });
+          </script>
+
+          <h2>Previous Runs</h2>
+          <div id="user_data_container" class="route-container"></div>
+
+          <h2>Recommond Runs</h2>
+          <div id="recommend_data_container"class="route-container"></div>
+
+          
+          <script>
+            function showModal() {
+              document.getElementById('newRun').style.display = 'block';
+            }
+          </script>
+
+          <div id="newRun" class="modal">
+            <div class="header">
+              <h2>Social Runners</h2>
+            </div>
+
+            <span
+              id="closeModal"
+              onclick="document.getElementById('newRun').style.display='none'"
+              class="close"
+              >&times;</span
+            >
+
+            <!-- Alert Message here before Close - will lose all data -->
+            <h1>Plan A Social Run</h1>
+            <div class="containerForm">
+              <p id="result"></p>
+              <b>
+                <p>1. Input your origin, destination and pace</p>
+              </b>
+              <form id="distance_form">
+                <div>
+                  <label>Origin:</label>
+                  <input
+                    id="from_places"
+                    placeholder="Enter a Location"
+                    required
+                  />
+                  <button type="button" id="from_button">Search</button>
+                  <div id="origin_drop"></div>
+                  <input id="origin" type="hidden" name="origin" required />
+                </div>
+
+                <div>
+                  <label>Destination:</label>
+                  <input
+                    id="to_places"
+                    placeholder="Enter a Location"
+                    required
+                  />
+                  <button type="button" id="to_button">Search</button>
+                  <div id="destination_drop"></div>
+                  <input
+                    id="destination"
+                    type="hidden"
+                    name="destination"
+                    required
+                  />
+                </div>
+                
+                <button id="add_mid">Add a Midpoint</button>
+
+                <div id="velocity">
+                  <label>Approx Pace in Miles/Hour:</label>
+                  <input id="paceMiles" placeholder="Enter a Pace" required />
+                </div>
+                
+                <!-- Xinru:add date selection -->
+                <div id="date"> 
+                  <label>Please select the date you want to run:</label>
+                  <select id="selectDate" required>
+                      <option value="-1" disabled selected>Select a date</option>
+                  </select>
+              </div>
+              
+              <script>
+                  // Get current date
+                  const currentDate = new Date();
+              
+                  // Generate date options for the next seven days
+                  for (let i = 0; i < 7; i++) {
+                      const date = new Date();
+                      date.setDate(currentDate.getDate() + i);
+                      const option = document.createElement('option');
+                      option.text = formatDate(date);
+                      option.value = i; // 设置选项值为0到6的数字
+                      document.getElementById('selectDate').appendChild(option);
+                  }
+              
+                  // Format date as string: YYYY-MM-DD
+                  function formatDate(date) {
+                      const year = date.getFullYear();
+                      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                      const day = date.getDate().toString().padStart(2, '0');
+                      return `${year}-${month}-${day}`;
+                  }
+              
+                  // Listen for date selection change events
+                  document.getElementById('selectDate').addEventListener('change', function() {
+                      const selectedDateIndex = parseInt(this.value);                  
+                      console.log('Selected index:', selectedDateIndex); 
+                      const currentDate = new Date();
+                      currentDate.setDate(currentDate.getDate() + selectedDateIndex);
+                      const selectedDate = formatDate(currentDate);
+                      console.log('selectedDate:', selectedDate); 
+                      document.getElementById('weather').innerText = `Plan Run date: ${selectedDate}`;
+                  });
+              </script>
+              
+                
+                <input
+                  type="submit"
+                  id="navButt"
+                  value="Plan Run"
+                  class="runBtn"
+                />
+
+                <button id="joinRunButton" class="runBtn" onclick="joinRun()">Join Run</button>
+
+                <button id="finish" class="runBtn" onclick="showComment()">
+                  Finish Your Run
+                </button>
+              </form>
+              <script src="dropdown.js"></script>
+            </div>
+
+            <!--Xinru: add weather container--> 
+            <div class="weatherContainer">
+              <div id="weather"></div>
+
+            </div>
+            <!--Map container-->
+            <div class="mapContainer">
+              <div id="map"></div>
+            </div>
+
+            <!-- Initialise the Leaflet Map-->
+            <script
+              src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+              integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+              crossorigin=""
+            >
+            </script>
+           </div>
+
+            <div id="left"></div>
+            <div id="right"></div>
+          </div>
+          <br />
+        </div>
+        <!--End Modal-->
+      </div>
+    </div>
+
+    <div class="centercolumn"class="hidden">
+      
+ <div id="commentForm" class="hidden">
+  <h3>Leave a Comment</h3>
+  <!-- show username -->
+  <p id="commentUsername"></p>
+  <!-- show selected date -->
+  <p id="commentDate"></p>
+  <!--input conmment -->
+  <input type="text" id="commentInput" placeholder="Your comment here..." />
+  <button id="submitComment">Submit Comment</button>
+</div>
+
+<!-- comment list -->
+<div id="commentsList" class="hidden">
+  <h3>Comments Area</h3>
+</div>
+    <script>
+      function showComment() {
+        document.getElementById('newRun').style.display = 'none';
+        document.getElementById('commentForm').style.display = 'block';
+        document.getElementById('startRun').style.display = 'none';
+
+      // update user name and date
+       document.getElementById('commentUsername').innerText = "Username: " + username;
+       document.getElementById('commentDate').innerText = "Date: " + selectedDate;
+      }
+    </script>
+    <script src="./gloablVariables.js"></script>
+    <script src="./autofill.js"></script>
+    <script src="./weather.js"></script>
+    <script src="./dropdown.js"></script>
+    <script src="./client.js"></script>
+  </body>
+</html>
