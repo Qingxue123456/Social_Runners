@@ -140,7 +140,7 @@ router.post('/login', expressJoi(loginSchema), async (req, res) => {
   }
 });
 
-/**Shiwen: add new run to database */
+/**add new run to database */
 router.post('/addNewRun', async (req, res) => {
   try {
     const {
@@ -218,7 +218,7 @@ router.post('/joinRun', async (req, res) => {
   }
 });
 
-/**Shiwen: get run details by _id, this fucntion will be called when press view button */
+/**get run details by _id, this fucntion will be called when press view button */
 router.get('/getOneRun/:id', async (req, res) => {
   try {
     const runId = req.params.id;
@@ -240,7 +240,7 @@ router.get('/getOneRun/:id', async (req, res) => {
   }
 });
 
-/**Shiwen: It will change the status of a run to finished */
+/** It will change the status of a run to finished */
 router.put('/finishRun/:id', async (req, res) => {
   try {
     const runId = req.params.id;
