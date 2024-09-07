@@ -1,7 +1,7 @@
 //OpenRouteService API Key.
-//Yuanzhe: 5b3ce3597851110001cf624881c2a83809e643979196804e40f881b6
-//Shiwen: 5b3ce3597851110001cf62489873755d2e39415b85d02b24744358ce
-//Shuqing: 5b3ce3597851110001cf6248fe2d7ee851ad4938bb74e5b0bc79c957
+// 5b3ce3597851110001cf624881c2a83809e643979196804e40f881b6
+// 5b3ce3597851110001cf62489873755d2e39415b85d02b24744358ce
+// 5b3ce3597851110001cf6248fe2d7ee851ad4938bb74e5b0bc79c957
 const routeKey = '5b3ce3597851110001cf6248fe2d7ee851ad4938bb74e5b0bc79c957';
 const fromInput = document.getElementById('from_places');
 const toInput = document.getElementById('to_places');
@@ -17,7 +17,7 @@ const speedDiv = document.getElementById('velocity');
 // a hashmap, key = log & lat, value = name of a place
 const locationCoordinatesMap = {};
 
-/** Shiwen: This event will be triggered when user attempts to edit location */
+/** This event will be triggered when user attempts to edit location */
 function displayOptions(input, drop, button) {
   button.addEventListener('click', function () {
     const userInput = input.value.trim(); // trim white spaces
@@ -78,7 +78,7 @@ function displayOptions(input, drop, button) {
   });
 }
 
-/**Yuanzhe add midpoint, using geocode to search the midpoint AND generate a dropdown list*/
+/** add midpoint, using geocode to search the midpoint AND generate a dropdown list*/
 midButt.addEventListener('click', displayMidPointDiv);
 function displayMidPointDiv() {
   //When click the midButt, create a new division in the form
@@ -120,9 +120,9 @@ function displayMidPointDiv() {
 displayOptions(fromInput, originDrop, fromButton);
 displayOptions(toInput, destinationDrop, toButton);
 
-/**Shiwen: This function change user input location (name of a place) to geocode(float)
+/** This function change user input location (name of a place) to geocode(float)
  * Note that it will return a series of potential geocode
- * Yuanzhe: in Leaflet, it uses (log, lat) format!
+ * in Leaflet, it uses (log, lat) format!
  */
 function geocode(location) {
   return fetch(
@@ -140,7 +140,7 @@ function geocode(location) {
     });
 }
 
-/**Shiwen: This function will change geocode to location name */
+/** This function will change geocode to location name */
 function reverseGeocode(lon, lat) {
   const url = `https://api.openrouteservice.org/geocode/reverse?api_key=${routeKey}&point.lon=${lon}&point.lat=${lat}&size=1`;
   return fetch(url)

@@ -16,7 +16,7 @@ async function getWeather() {
   }
 }
 
-/**Shiwen: this function returns the chance of rainy for a day */
+/** this function returns the chance of rainy for a day */
 function getRainyChance(x) {
   return new Promise((resolve, reject) => {
     getWeather()

@@ -1,5 +1,5 @@
 // id : 660dc3ef41b20f7600cd3df5
-/**Shiwen: this will be executed when viewPage is loading
+/**this will be executed when viewPage is loading
  * It will display details of a run
  */
 document.addEventListener('DOMContentLoaded', async function () {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       data.run.destLat
     );
 
-    // Xinru：changed the css of run-details
+    // changed the css of run-details
     var paragraph = document.createElement('div');
     paragraph.classList.add('run-details');
     paragraph.innerHTML = `

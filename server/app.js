@@ -36,7 +36,6 @@ function authenticateToken(req, res, next) {
   });
 }
 
-// /Jin's modifications:
 // The first red dot added runs and comments databases.
 // The second red dot added the route for comments.js.
 // Note: The route in comments.js is not fully completed. Shiwen needs to add social features for joining others' runs. The respective comments and positions are already marked in comments.js and client.js.

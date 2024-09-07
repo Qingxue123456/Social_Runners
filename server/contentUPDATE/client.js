@@ -124,7 +124,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map); //Add reference to the map
 
-// Shiwen: this will be called when user change date
+//this will be called when user change date
 let selectedDateIndex, selectedDate;
 document.getElementById('selectDate').addEventListener('change', function () {
   selectedDateIndex = parseInt(this.value); // 解析选定的日期索引
@@ -136,7 +136,7 @@ document.getElementById('selectDate').addEventListener('change', function () {
   ).innerText = `Plan Run date: ${selectedDate}`;
 });
 
-/**Yuanzhe: Route planning
+/** Route planning
  * This function will be called when user filled the form and press Plan Run button
  */
 function routePlanning() {
@@ -208,7 +208,7 @@ function routePlanning() {
         selectedDate
       );
     });
-  //Shiwen: add marker to the map
+  // add marker to the map
   L.marker([startLat, startLog]).addTo(map);
   L.marker([destLat, destLog]).addTo(map);
 }
@@ -219,7 +219,7 @@ setInterval(function () {
   map.invalidateSize();
 }, 100);
 
-/**Shiwen: this function will search all text boxes,
+/**this function will search all text boxes,
  * if has a value, find log and lat in the hashmap
  * then push result in an array and return
  *
@@ -245,7 +245,7 @@ function getCoordinates(midpoints) {
 }
 
 /**
- * Shiwen: This function will add run to database runs
+ * This function will add run to database runs
  * It will be called after user filled start and end location and press the button
  */
 async function addNewRun(
@@ -296,7 +296,7 @@ async function addNewRun(
   }
 }
 
-/**Shiwen:
+/**
  * 0-5000 is easy(0)
  * 5001-10000 is medium(1)
  * 10000+ is advanced(2)
@@ -312,10 +312,10 @@ function levelOfRun(distance) {
 }
 
 /**
- * Shiwen: this function will be called after user login(so in homepage)
+ * this function will be called after user login(so in homepage)
  * Load runs and display
  */
-// Xinru:Change the join button to a check button and add styles.
+// Change the join button to a check button and add styles.
 async function loadTopRuns() {
   try {
     const response = await fetch('http://127.0.0.1:3007/api/loadTopRuns');
@@ -394,7 +394,7 @@ async function loadTopRuns() {
 
 
 
-/*jing modification, (69-166) 
+/*
 1. Initialize a run 
 2. Submit a user message once 
 3. After mentioning the message, the page jumps to other users’ messages*/ 
